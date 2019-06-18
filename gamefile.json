@@ -1,0 +1,48 @@
+{
+    "start": "You must have slept for days. You woke up and found yourself in a strange place. The wall in front of you says 'collect 3 eyeballs and you can leave'. You think it must be a prank but you decided to play along.",
+    "map": {
+        "main room": {
+            "description": "You are at the entrance of a room that looks like someone's living room",
+            "detail": "There is a coffee table with a small box at the center of the room, there's also a chair in the corner. There's also some trash just laying around. This room is very dusty. It looks like there's a door leading to the west and the south.",
+            "children": [
+                "small box", 
+                "chair"
+            ],
+            "neighbors": {
+                "north": null,
+                "south": "small room",
+                "east": null,
+                "west": "red room"
+            }
+        },
+        "small room": {
+            "description": "You are in the small room. It's so tiny that there's only space for one person to turn around.",
+            "detail": "Not much going on here. Seems more space between rooms instead of a room. There's a door to the north, the south and the east as well.",
+            "children": null,
+            "neighbors": {
+                "north": "main room",
+                "south": "cave",
+                "east": "blue room",
+                "west": null
+            }
+        },
+        "red room": {
+            "description": "You are in a red room. The walls are violently red it's almost agitating.",
+            "detail": "There are pillows laying around randomly. Feels like this used to be a bedroom but now the bed is gone. You can also see a sack leaning against the wall with the window. The windows are shut so you can't see what out there.",
+            "children": [
+                "pillows",
+                "sack",
+                "window"
+            ]
+
+
+        },
+        "cave": {
+
+        }
+    },
+
+    "rooms": {
+        
+    }
+}
