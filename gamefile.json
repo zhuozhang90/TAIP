@@ -1,24 +1,70 @@
 {
     "start": "You must have slept for days. You woke up and found yourself in a strange place. The wall in front of you says 'collect 5 eyeballs and you can leave'. You think it must be a prank but you decided to play along.",
+
     "map": {
         "main room": {
-            "description": "You are at the entrance of a room that looks like someone's living room",
-            "detail": "There is a coffee table with a small box at the center of the room, there's also a chair in the corner. There's also some trash just laying around. This room is very dusty. It looks like there's a door leading to the west and the south.",
-            "children": [
-                "small box", 
-                "chair"
-            ],
             "neighbors": {
                 "north": null,
                 "south": "small room",
                 "east": null,
                 "west": "red room"
+            },
+            "children": [
+                "small box", 
+                "chair"
+            ]
+        },
+        "small room": {
+            "neighbors": {
+                "north": "main room",
+                "south": "cave",
+                "east": "blue room",
+                "west": null
+            },
+            "children": null
+        },
+        "red room": {
+            "neighbors": {
+                "north": null,
+                "south": null,
+                "east": "main room",
+                "west": null
+            },
+            "children": [
+                "pillows",
+                "sack",
+                "window"
+            ]
+        },
+        "cave": {
+            "neighbors": {
+                "north": "small room",
+                "south": null,
+                "east": "blue room",
+                "west": null
+            },
+            "children": ""
+        }
+    },
+
+    "rooms": {
+        "main room": {
+            "description": "You are at the entrance of a room that looks like someone's living room",
+            "detail": "There is a coffee table with a small box at the center of the room, there's also a chair in the corner. There's also some trash just laying around. This room is very dusty. It looks like there's a door leading to the west and the south.",
+            "contains": {
+                "small box": {
+                    "detail": "This is a very strange looking box and it seems to be easy to open.",
+                    "contains": {
+                        "eyeball": "You found an eyeball. It looks just as gross as you'd imagined.",
+                        "key": "You found a key but there don't seem to be locks anywhere"
+                        
+                    }
+                }
             }
         },
         "small room": {
             "description": "You are in the small room. It's so tiny that there's only space for one person to turn around.",
             "detail": "Not much going on here. Seems more space between rooms instead of a room. There's a door to the north, the south and the east as well.",
-            "children": null,
             "neighbors": {
                 "north": "main room",
                 "south": "cave",
@@ -47,9 +93,6 @@
             "children": "",
             "neighbors": {}
         }
-    },
-
-    "rooms": {
         
     }
 }
