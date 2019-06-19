@@ -1,5 +1,5 @@
 {
-    "start": "You must have slept for days. You woke up and found yourself in a strange place. The wall in front of you says 'collect 3 eyeballs and you can leave'. You think it must be a prank but you decided to play along.",
+    "start": "You must have slept for days. You woke up and found yourself in a strange place. The wall in front of you says 'collect 5 eyeballs and you can leave'. You think it must be a prank but you decided to play along.",
     "map": {
         "main room": {
             "description": "You are at the entrance of a room that looks like someone's living room",
@@ -33,12 +33,19 @@
                 "pillows",
                 "sack",
                 "window"
-            ]
-
-
+            ],
+            "neighbors": {
+                "north": null,
+                "south": null,
+                "east": "main room",
+                "west": null
+            }
         },
         "cave": {
-
+            "description": "",
+            "detail": "",
+            "children": "",
+            "neighbors": {}
         }
     },
 
