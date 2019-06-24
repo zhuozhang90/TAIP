@@ -1,5 +1,5 @@
 {
-    "start": "You must have slept for days. You woke up and found yourself in a strange place. The wall in front of you says 'collect 5 eyeballs and you can leave'. You think it must be a prank but you decided to play along.",
+    "start": "You must have slept for days. You woke up and found yourself in a strange place. The wall in front of you says 'collect 3 eyeballs and you can leave'. You think it must be a prank but you decided to play along.",
 
     "map": {
         "main room": {
@@ -8,11 +8,7 @@
                 "south": "small room",
                 "east": null,
                 "west": "red room"
-            },
-            "children": [
-                "small box", 
-                "chair"
-            ]
+            }
         },
         "small room": {
             "neighbors": {
@@ -20,8 +16,7 @@
                 "south": "cave",
                 "east": "blue room",
                 "west": null
-            },
-            "children": null
+            }
         },
         "red room": {
             "neighbors": {
@@ -29,21 +24,15 @@
                 "south": null,
                 "east": "main room",
                 "west": null
-            },
-            "children": [
-                "pillows",
-                "sack",
-                "window"
-            ]
+            }
         },
-        "cave": {
+        "blue room": {
             "neighbors": {
-                "north": "small room",
+                "north": null,
                 "south": null,
-                "east": "blue room",
-                "west": null
-            },
-            "children": ""
+                "east": null,
+                "west": "small room"
+            }
         }
     },
 
@@ -57,7 +46,12 @@
                     "contains": {
                         "eyeball": "You found an eyeball. It looks just as gross as you'd imagined.",
                         "key": "You found a key but there don't seem to be locks anywhere"
-                        
+                    }
+                },
+                "chair": {
+                    "detail": "Just a wooden chair. Nothing fancy.",
+                    "contains": {
+                        "nothing": "Nothing in the chair."
                     }
                 }
             }
@@ -65,34 +59,47 @@
         "small room": {
             "description": "You are in the small room. It's so tiny that there's only space for one person to turn around.",
             "detail": "Not much going on here. Seems more space between rooms instead of a room. There's a door to the north, the south and the east as well.",
-            "neighbors": {
-                "north": "main room",
-                "south": "cave",
-                "east": "blue room",
-                "west": null
+            "contains": {
+                "nothing": "Nothing to see here."
             }
         },
         "red room": {
             "description": "You are in a red room. The walls are violently red it's almost agitating.",
-            "detail": "There are pillows laying around randomly. Feels like this used to be a bedroom but now the bed is gone. You can also see a sack leaning against the wall with the window. The windows are shut so you can't see what out there.",
-            "children": [
-                "pillows",
-                "sack",
-                "window"
-            ],
-            "neighbors": {
-                "north": null,
-                "south": null,
-                "east": "main room",
-                "west": null
+            "detail": "There are pillows laying around randomly. Feels like this used to be a bedroom but now the bed is gone. You can also see a sack leaning against the wall to your right.",
+            "contains": {
+                "pillows": {
+                    "detail": "Looks like someone had a pillow fight here.",
+                    "contains": {
+                        "cotton": "Cotton balls fill the inside of the pillow.",
+                        "eyeball": "You found an eyeball. It looks just as gross as you'd imagined."
+                    }
+                },
+                "sack": {
+                    "detail": "Looks new. Wonder what's in there.",
+                    "contains": {
+                        "nothing": "Nothing inside even though it looked full from the outside. Like the opposite of a Tardis."
+                    }
+                }
             }
         },
-        "cave": {
-            "description": "",
-            "detail": "",
-            "children": "",
-            "neighbors": {}
+        "blue room": {
+            "description": "You are in a blue room. It's very cozy and feels less disturbing than the other rooms.",
+            "detail": "There's a chest under a table that seems pretty old. On the desk stands a bottle that says 'Empty'.",
+            "contains": {
+                "chest": {
+                    "detail": "It's a very old treasure chest. You are probably in luck.",
+                    "contains": {
+                        "eyeball":"You found an eyeball. It looks just as gross as you'd imagined.",
+                        "trash": "Nothing to look here. People need to stop using this as a trash can."
+                    }
+                },
+                "bottle": {
+                    "detail": "Very nice bottle. Looks old.",
+                    "contains": {
+                        "nothing": "Bottle wasn't lying. Nothing inside."
+                    }
+                }
+            }
         }
-        
     }
 }
