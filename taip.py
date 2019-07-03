@@ -1,4 +1,4 @@
-from taip import command
+from taip import command, gamereader
 
 def main():
     command.prompt()

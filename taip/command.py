@@ -1,7 +1,6 @@
 import math
-from taip import parser
-
+from taip import commandparser
 def prompt():
     while True:
         command = input(">>> ")
-        parser.parse(command)
+        commandparser.parse(command)

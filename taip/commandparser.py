@@ -7,6 +7,5 @@ def parse(command):
         print("^")
     elif command == "go south" or command == "s":
         print("v")
-    elif command == "pick up" 
     else:
         print("invalid command")
