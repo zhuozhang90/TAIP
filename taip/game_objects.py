@@ -1,8 +1,17 @@
 class Game():
-    def __init__(self, entry=None, goal=0, score=0):
+    def __init__(self, start=None, entry=None, goal=0, score=0):
+        self._start = start
         self._entry = entry
         self._goal = goal
         self._score = 0
+
+    @property
+    def start(self):
+        return self._start
+
+    @start.setter
+    def start(self, val):
+        self._start = val
 
     @property
     def entry(self):
