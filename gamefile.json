@@ -61,10 +61,7 @@
         },
         "small room": {
             "description": "You are in the small room. It's so tiny that there's only space for one person to turn around.",
-            "detail": "Not much going on here. Seems more space between rooms instead of a room. There's a door to the north, the south and the east as well.",
-            "children": {
-                "nothing": "Nothing to see here."
-            }
+            "detail": "Not much going on here. Seems more space between rooms instead of a room. There's a door to the north, the south and the east as well."
         },
         "red room": {
             "description": "You are in a red room. The walls are violently red it's almost agitating.",
