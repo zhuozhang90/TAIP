@@ -57,7 +57,6 @@
                     "detail": "Just a wooden chair. Nothing fancy."
                     }
                 }
-            }
         },
         "small room": {
             "description": "You are in the small room. It's so tiny that there's only space for one person to turn around.",
@@ -97,3 +96,5 @@
         }
     }
 }
+
+
