@@ -1,7 +1,7 @@
-from taip import command, gamereader
+from taip import prompt, game_reader
 
 def main():
-    command.prompt()
+    prompt.prompt()
 
 
 if __name__ == "__main__":
