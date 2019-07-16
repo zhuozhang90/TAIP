@@ -38,12 +38,13 @@ class Game():
 
 class Room():
 
-    def __init__(self, name, description=None, detail=None, neighbors=None, children=None):
+    def __init__(self, name, description=None, n=None, e=None, s=None, w=None):
         self._name = name
         self._description = description
-        self._detail = detail
-        self._neighbors = neighbors
-        self._children = children
+        self._n = n
+        self._s = s
+        self._e = e
+        self._w = w
 
     @property
     def name(self):
@@ -84,38 +85,23 @@ class Room():
     def children(self, val):
         self._children = val
 
-class Item():
+class Player():
+    def __init__(self, pos=None, inventory=[]):
+        self._pos = pos
+        self._inventory = inventory
 
-    def __init__(self, name, description, children=None):
-        self._name = name
-        self._description = description
-        self._children = children
-        self._checked = False
+    @property
+    def pos(self):
+        return self._pos
+
+    @pos.setter
+    def pos(self, val):
+        self._pos = val
+
+    @property
+    def inventory(self):
+        return self._inventory
+
+    def add_to_inventory(self, item):
+        self._inventory.append(item)
     
-    @property
-    def name(self):
-        return self._name
-
-    @property
-    def desc(self):
-        return self._description
-
-    @desc.setter
-    def desc(self, val):
-        self._description = val
-
-    @property
-    def children(self):
-        return self._children
-
-    @children.setter
-    def children(self, val):
-        self._children = val
-
-    @property
-    def checked(self):
-        return self._checked
-    
-    def check(self):
-        self._checked = True
-

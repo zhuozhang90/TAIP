@@ -8,93 +8,78 @@
 
     "map": {
         "main room": {
-            "neighbors": {
-                "north": null,
-                "south": "small room",
-                "east": null,
-                "west": "red room"
-            }
+            "description": "You are at the entrance of a room that looks like someone's living room. There is a coffee table with a small box at the center of the room, there's also a chair in the corner. There's also some trash just laying around. This room is very dusty. It looks like there's a door leading to the west and the south.",
+            "north": null,
+            "south": "small room",
+            "east": null,
+            "west": "red room"
         },
         "small room": {
-            "neighbors": {
-                "north": "main room",
-                "south": "cave",
-                "east": "blue room",
-                "west": null
-            }
+            "description": "You are in the small room. It's so tiny that there's only space for one person to turn around. Not much going on here. Seems more space between rooms instead of a room. There's a door to the north, the south and the east as well.",
+            "north": "main room",
+            "south": "cave",
+            "east": "blue room",
+            "west": null
         },
         "red room": {
-            "neighbors": {
-                "north": null,
-                "south": null,
-                "east": "main room",
-                "west": null
-            }
+            "description": "You are in a red room. The walls are violently red it's almost agitating. There are pillows laying around randomly. Feels like this used to be a bedroom but now the bed is gone. You can also see a sack leaning against the wall to your right.",
+            "north": null,
+            "south": null,
+            "east": "main room",
+            "west": null
         },
         "blue room": {
-            "neighbors": {
-                "north": null,
-                "south": null,
-                "east": null,
-                "west": "small room"
-            }
+            "description": "You are in a blue room. It's very cozy and feels less disturbing than the other rooms. There's a chest under a table that seems pretty old. On the desk stands a bottle that says 'Empty'.",
+            "north": null,
+            "south": null,
+            "east": null,
+            "west": "small room"
         }
     },
 
     "rooms": {
         "main room": {
-            "description": "You are at the entrance of a room that looks like someone's living room",
-            "detail": "There is a coffee table with a small box at the center of the room, there's also a chair in the corner. There's also some trash just laying around. This room is very dusty. It looks like there's a door leading to the west and the south.",
             "children": {
                 "small box": {
                     "detail": "This is a very strange looking box and it seems to be easy to open.",
-                    "children": {
-                        "eyeball": "You found an eyeball. It looks just as gross as you'd imagined.",
-                        "key": "You found a key but there don't seem to be locks anywhere"
-                    }
+                    "contains": "an eyeball"
                 },
                 "chair": {
-                    "detail": "Just a wooden chair. Nothing fancy."
+                    "detail": "Just a wooden chair. Nothing fancy.",
+                    "contains": "nothing"
                     }
                 }
         },
         "small room": {
-            "description": "You are in the small room. It's so tiny that there's only space for one person to turn around.",
-            "detail": "Not much going on here. Seems more space between rooms instead of a room. There's a door to the north, the south and the east as well."
+            "children": null
         },
         "red room": {
-            "description": "You are in a red room. The walls are violently red it's almost agitating.",
-            "detail": "There are pillows laying around randomly. Feels like this used to be a bedroom but now the bed is gone. You can also see a sack leaning against the wall to your right.",
             "children": {
                 "pillows": {
                     "detail": "Looks like someone had a pillow fight here.",
-                    "children": {
-                        "cotton": "Cotton balls fill the inside of the pillow.",
-                        "eyeball": "You found an eyeball. It looks just as gross as you'd imagined."
-                    }
+                    "contains": "an eyeball"
                 },
                 "sack": {
-                    "detail": "Looks new."
+                    "detail": "Looks new.",
+                    "contains": "a knife"
                 }
             }
         },
         "blue room": {
-            "description": "You are in a blue room. It's very cozy and feels less disturbing than the other rooms.",
-            "detail": "There's a chest under a table that seems pretty old. On the desk stands a bottle that says 'Empty'.",
-            "children": {
+           "children": {
                 "chest": {
                     "detail": "It's a very old treasure chest. You are probably in luck.",
-                    "children": {
-                        "eyeball":"You found an eyeball. It looks just as gross as you'd imagined.",
-                        "trash": "Nothing to look here. People need to stop using this as a trash can."
-                    }
+                    "contains": "an eyeball"
                 },
                 "bottle": {
-                    "detail": "Very nice bottle. Looks old."
+                    "detail": "Very nice bottle. Looks old.",
+                    "contains": "a dead little mouse."
                 }
             }
         }
     }
 }
+
+
 
 
