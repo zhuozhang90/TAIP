@@ -125,7 +125,7 @@ class Player():
         self._inventory.append(item)
         item.pickup()
     
-class Items():
+class Item():
     def __init__(self, name, desc="", contains=[], checked=False, pickedup=False):
         self._name = name 
         self._desc = desc
