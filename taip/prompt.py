@@ -12,5 +12,8 @@ def parse(command):
         print("^")
     elif command == "go south" or command == "s":
         print("v")
+    elif command.startswith("pick up"):
+        item = command.lstrip("pick up ")
+        print(item)
     else:
         print("invalid command")

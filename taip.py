@@ -1,4 +1,4 @@
-from taip import prompt, game_reader
+from taip import prompt
 
 def main():
     prompt.prompt()

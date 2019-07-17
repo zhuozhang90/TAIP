@@ -1,25 +1,22 @@
 class Game():
-    def __init__(self, start=None, entry=None, goal=0, score=0):
-        self._start = start
-        self._entry = entry
+    def __init__(self, intro="", goal=0, score=0):
+        self._intro = intro
         self._goal = goal
         self._score = 0
 
     @property
-    def start(self):
-        return self._start
+    def intro(self):
+        return self._intro
 
-    @start.setter
+    @intro.setter
     def start(self, val):
-        self._start = val
+        self._intro = val
 
-    @property
-    def entry(self):
-        return self._entry
-
-    @entry.setter
-    def entry(self, val):
-        self._entry = val
+    def start_game(self):
+        if self._intro != ""
+            print(intro)
+        else:
+            print("No intro set yet.")
 
     @property
     def goal(self):
@@ -36,11 +33,14 @@ class Game():
     def incr_score(self):
         self._score += 1
 
-class Room():
+    def check_win(self):
+        return goal == score
 
-    def __init__(self, name, description=None, n=None, e=None, s=None, w=None):
+class Room():
+    def __init__(self, name, desc="", contains=[], n=None, e=None, s=None, w=None):
         self._name = name
-        self._description = description
+        self._desc = desc
+        self._contains = contains
         self._n = n
         self._s = s
         self._e = e
@@ -59,31 +59,46 @@ class Room():
         self._desc = val
 
     @property
-    def detail(self):
-        return self._detail
+    def contains(self):
+        return self._contains
 
-    @detail.setter
-    def detail(self, val):
-        self._detail = val
+    def contain(self,item):
+        self._contains.append(item)
 
-    @property
-    def neighbors(self):
-        return self._neighbors
-
-    @neighbors.setter
-    def neighbors(self, val):
-        self._neighbors = val
-
-    def has_children(self):
-        return self._children is not None
+    def is_empty(self):
+        return len(self._contains == 0)
 
     @property
-    def children(self):
-        return self._children
+    def n(self):
+        return self._n
 
-    @children.setter
-    def children(self, val):
-        self._children = val
+    @n.setter
+    def n(self, val):
+        self._n = val
+
+    @property
+    def s(self):
+        return self._s
+
+    @s.setter
+    def s(self, val):
+        self._s = val
+
+    @property
+    def e(self):
+        return self._e
+
+    @e.setter
+    def e(self, val):
+        self._e = val
+
+    @property
+    def w(self):
+        return self._w
+
+    @w.setter
+    def w(self, val):
+        self._w = val
 
 class Player():
     def __init__(self, pos=None, inventory=[]):
@@ -98,10 +113,73 @@ class Player():
     def pos(self, val):
         self._pos = val
 
+    def check(self, item):
+        item.check()
+
+
     @property
     def inventory(self):
         return self._inventory
 
-    def add_to_inventory(self, item):
+    def pickup(self, item):
         self._inventory.append(item)
+        item.pickup()
+    
+class Items():
+    def __init__(self, name, desc="", contains=[], checked=False, pickedup=False):
+        self._name = name 
+        self._desc = desc
+        self._contains = contains
+        self._visited = visited
+        self._pickedup = pickedup
+
+    @property
+    def desc(self):
+        return self._desc
+    
+    @desc.setter
+    def desc(self, val):
+        self._desc = val
+
+    @property
+    def contains(self):
+        return self._contains
+    
+    @contains.setter
+    def contains(self, val):
+        self._contains = val
+
+    @property
+    def desc(self):
+        return self._desc
+    
+    @desc.setter
+    def desc(self, val):
+        self._desc = val
+
+    @property
+    def contains(self):
+        return self._contains
+
+    def is_empty(self):
+        return len(self._contains == 0)
+
+    def add_child(self, item):
+        self._contains.append(item)
+
+    @property 
+    def checked(self):
+        return self._checked
+
+    def check(self):
+        self._checked = True
+
+    @property
+    def pickedup(self):
+        return self._pickedup
+
+    def pickup(self):
+        self._pickedup = True    
+
+
     
