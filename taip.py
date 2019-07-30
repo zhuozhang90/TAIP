@@ -1,8 +1,7 @@
-from taip import prompt
-from taip.game_objects import Game, Player, Room, Item
+from taip import game
 
 def main():
-    prompt.prompt()
+    game.prompt()
 
 
 if __name__ == "__main__":

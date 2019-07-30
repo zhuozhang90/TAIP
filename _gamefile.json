@@ -17,7 +17,7 @@
         "small room": {
             "description": "You are in the small room. It's so tiny that there's only space for one person to turn around. Not much going on here. Seems more space between rooms instead of a room. There's a door to the north, the south and the east as well.",
             "north": "main room",
-            "south": "cave",
+            "south": "",
             "east": "blue room",
             "west": null
         },

@@ -1,46 +1,8 @@
-class Game():
-    def __init__(self, intro="", goal=0, score=0):
-        self._intro = intro
-        self._goal = goal
-        self._score = 0
-
-    @property
-    def intro(self):
-        return self._intro
-
-    @intro.setter
-    def start(self, val):
-        self._intro = val
-
-    def start_game(self):
-        if self._intro != ""
-            print(intro)
-        else:
-            print("No intro set yet.")
-
-    @property
-    def goal(self):
-        return self._goal
-
-    @goal.setter
-    def goal(self, val):
-        self._goal = val
-
-    @property
-    def score(self):
-        return self._score
-
-    def incr_score(self):
-        self._score += 1
-
-    def check_win(self):
-        return goal == score
-
 class Room():
-    def __init__(self, name, desc="", contains=[], n=None, e=None, s=None, w=None):
+    def __init__(self, name, desc="", n=None, e=None, s=None, w=None):
         self._name = name
         self._desc = desc
-        self._contains = contains
+        self._contains = []
         self._n = n
         self._s = s
         self._e = e
@@ -52,11 +14,7 @@ class Room():
 
     @property
     def desc(self):
-        return self._description
-
-    @desc.setter
-    def desc(self, val):
-        self._desc = val
+        return self._desc
 
     @property
     def contains(self):
@@ -101,9 +59,10 @@ class Room():
         self._w = val
 
 class Player():
-    def __init__(self, pos=None, inventory=[]):
+    def __init__(self, pos=None):
         self._pos = pos
-        self._inventory = inventory
+        self._inventory = []
+        self._env = []
 
     @property
     def pos(self):
@@ -116,7 +75,6 @@ class Player():
     def check(self, item):
         item.check()
 
-
     @property
     def inventory(self):
         return self._inventory
@@ -124,38 +82,43 @@ class Player():
     def pickup(self, item):
         self._inventory.append(item)
         item.pickup()
+
+    def add_env(self, item):
+        self._env += item.contains
+        for i in self._env:
+            print(i)
+
+    def reset_env(self):
+        self._env = []
+
+    def n(self):
+        self._pos = self._pos.n
+
+    def e(self):
+        self._pos = self._pos.e
+
+    def w(self):
+        self._pos = self._pos.w
+
+    def s(self):
+        self._pos = self._pos.s
+    
     
 class Item():
-    def __init__(self, name, desc="", contains=[], checked=False, pickedup=False):
+    def __init__(self, name, desc="", visited=False, pickedup=False):
         self._name = name 
         self._desc = desc
-        self._contains = contains
+        self._contains = []
         self._visited = visited
         self._pickedup = pickedup
 
     @property
-    def desc(self):
-        return self._desc
-    
-    @desc.setter
-    def desc(self, val):
-        self._desc = val
-
-    @property
-    def contains(self):
-        return self._contains
-    
-    @contains.setter
-    def contains(self, val):
-        self._contains = val
+    def name(self):
+        return self._name
 
     @property
     def desc(self):
         return self._desc
-    
-    @desc.setter
-    def desc(self, val):
-        self._desc = val
 
     @property
     def contains(self):
@@ -164,7 +127,7 @@ class Item():
     def is_empty(self):
         return len(self._contains == 0)
 
-    def add_child(self, item):
+    def contain(self, item):
         self._contains.append(item)
 
     @property 
