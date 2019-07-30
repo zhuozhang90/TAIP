@@ -65,6 +65,10 @@ class Player():
         self._env = []
 
     @property
+    def env(self):
+        return self._env
+
+    @property
     def pos(self):
         return self._pos
 
@@ -85,8 +89,6 @@ class Player():
 
     def add_env(self, item):
         self._env += item.contains
-        for i in self._env:
-            print(i)
 
     def reset_env(self):
         self._env = []
