@@ -1,0 +1,12 @@
+l
+x small box
+p eyeball
+l
+w
+x pillows
+p eyeball
+e
+s
+e
+x chest
+p eyeball

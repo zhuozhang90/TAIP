@@ -1,3 +1,5 @@
+# game objects used in the game
+
 class Room():
     def __init__(self, name, desc="", n=None, e=None, s=None, w=None):
         self._name = name
@@ -7,6 +9,9 @@ class Room():
         self._s = s
         self._e = e
         self._w = w
+
+    def __repr__(self):
+        return self._name
 
     @property
     def name(self):
@@ -61,8 +66,9 @@ class Room():
 class Player():
     def __init__(self, pos=None):
         self._pos = pos
-        self._inventory = []
+        self._inventory = set()
         self._env = []
+        self._commands = ''
 
     @property
     def env(self):
@@ -75,16 +81,26 @@ class Player():
     @pos.setter
     def pos(self, val):
         self._pos = val
-
-    def check(self, item):
-        item.check()
+    
+    @property
+    def commands(self):
+        return self._commands
+    def add_comm(self, comm):
+        self._commands += comm
+        self._commands += '\n'
 
     @property
     def inventory(self):
         return self._inventory
 
+    def inventory_dict(self):
+        inventory = dict()
+        for i in self._inventory:
+            inventory[i.name] = i.desc
+        return inventory
+
     def pickup(self, item):
-        self._inventory.append(item)
+        self._inventory.add(item)
         item.pickup()
 
     def add_env(self, item):
@@ -107,12 +123,13 @@ class Player():
     
     
 class Item():
-    def __init__(self, name, desc="", visited=False, pickedup=False):
+    def __init__(self, name, desc=""):
         self._name = name 
         self._desc = desc
         self._contains = []
-        self._visited = visited
-        self._pickedup = pickedup
+
+    def __repr__(self):
+        return self._name
 
     @property
     def name(self):
@@ -131,17 +148,6 @@ class Item():
 
     def contain(self, item):
         self._contains.append(item)
-
-    @property 
-    def checked(self):
-        return self._checked
-
-    def check(self):
-        self._checked = True
-
-    @property
-    def pickedup(self):
-        return self._pickedup
 
     def pickup(self):
         self._pickedup = True    
